@@ -13,7 +13,7 @@ and also [ChromeDriver](https://chromedriver.chromium.org/downloads)
 ## How to use it
 
 Here is a sample command:
-`basic-viewer.py -v 100 -d 20 -s 10`
+`basic-viewer.py -v 100 -d 20 -s 10 "URL"`
 
 This command will give you approximately _100 views_ (-v parameter), every _20 reloads_ (-d parameter) the bot stops and wait _10 seconds_ (-s parameter)
 
