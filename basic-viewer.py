@@ -1,9 +1,12 @@
-from selenium import webdriver
-from time import sleep
+# ----------------------- # Imports
 import requests
 import argparse
+# ----------------------- # Froms
+from selenium import webdriver
+from time import sleep
+# ----------------------- # End
 
-def check(v, d, s):
+def argscheck(v, d, s):
 	exitm = False
 	if(v == None):
 		print("Define -v parameter")
@@ -17,12 +20,12 @@ def check(v, d, s):
 	if(exitm == True):
 		print("Exiting...")
 	
-		
+# ----------- # ARGS handling
 parser = argparse.ArgumentParser(description="Youtube-AutoViewer by Rennaarenata (using this tool you may encounter a permanent ban from YouTube)")
-parser.add_argument("url", help="The URL of the video")
-parser.add_argument("-v", "--views", help="The approximate number of views you want to get (default 40)", default=40)
-parser.add_argument("-d","--delay", help="Every how many requests stop the bot", default=20)
-parser.add_argument("-s","--seconds", help="How many seconds to wait for each {-d} requests", default=15)
+parser.add_argument("url", help="The URL of the video.")
+parser.add_argument("-v", "--views", help="The approximate number of views you want to get (default 40), do not exceed 100 views in one hour.", default=40)
+parser.add_argument("-d","--delay", help="Every how many requests stop the bot.", default=20)
+parser.add_argument("-s","--seconds", help="How many seconds the bot has wait every {-d} request(s)", default=15)
 
 args = parser.parse_args()
 url = args.url
@@ -30,27 +33,30 @@ views = args.views
 delay = args.delay
 seconds = args.seconds
 
-check(views, delay, seconds)
+# ------------ # Check
+argscheck(views, delay, seconds)
 
-driver1 = webdriver.Chrome(executable_path="PATHTOCHROMEDRIVER.EXE")
-driver2 = webdriver.Chrome(executable_path="PATHTOCHROMEDRIVER.EXE")
-driver3 = webdriver.Chrome(executable_path="PATHTOCHROMEDRIVER.EXE")
+# ------------ # Driver Things
+driver1 = webdriver.Chrome(executable_path="PATHTOCHROMEDRIVERE")
+driver2 = webdriver.Chrome(executable_path="PATHTOCHROMEDRIVERE")
+driver3 = webdriver.Chrome(executable_path="PATHTOCHROMEDRIVERE")
+driver4 = webdriver.Chrome(executable_path="PATHTOCHROMEDRIVERE")
 
 driver1.get(url)
 driver2.get(url)
 driver3.get(url)
-
-sleep(6)
+driver4.get(url)
 
 print("Sleeping for 6 seconds...")
-a = 1
-a1 = a+1
+sleep(6)
 
-for a in range(int(views)):
+for a in range(int(views) + 1):
 	driver1.refresh()
 	driver2.refresh()
 	driver3.refresh()
-	print("Refresh Number: ", a1)
+	driver4.refresh()
+	print(f"Refresh: {a}")
 	if(a % int(delay) == 0):
-		print(f"Stopping for {seconds} seconds")
+		print(f"Sleeping for {seconds} seconds")
 		sleep(int(seconds))
+print(f"Enjoy!\n")
