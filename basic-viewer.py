@@ -31,6 +31,7 @@ url = args.url
 views = args.views
 delay = args.delay
 seconds = args.seconds
+path = "" # Edit this variable, this sets the path to the chrome driver executable. Eg: C:/.../.../.../chromedriver.exe
 
 print("[+]Starting...")
 print("[i]Views: " + str(views))
@@ -48,10 +49,10 @@ options = webdriver.ChromeOptions()
 options.add_argument("--log-level=3")
 
 # ------------ # Driver Stuff
-driver1 = webdriver.Chrome(executable_path="PATHTOCHROMEDRIVER.EXE", service_log_path="chromedriver.log", options=options)
-driver2 = webdriver.Chrome(executable_path="PATHTOCHROMEDRIVER.EXE", service_log_path="chromedriver.log", options=options)
-driver3 = webdriver.Chrome(executable_path="PATHTOCHROMEDRIVER.EXE", service_log_path="chromedriver.log", options=options)
-driver4 = webdriver.Chrome(executable_path="PATHTOCHROMEDRIVER.EXE", service_log_path="chromedriver.log", options=options)
+driver1 = webdriver.Chrome(executable_path=path, service_log_path="chromedriver.log", options=options)
+driver2 = webdriver.Chrome(executable_path=path, service_log_path="chromedriver.log", options=options)
+driver3 = webdriver.Chrome(executable_path=path, service_log_path="chromedriver.log", options=options)
+driver4 = webdriver.Chrome(executable_path=path, service_log_path="chromedriver.log", options=options)
 print("[*]Sleeping for 6 seconds...Accept cookies in the meantime.")
 
 driver1.get(url)
